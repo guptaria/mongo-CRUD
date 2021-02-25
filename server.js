@@ -7,6 +7,7 @@ const mongojs = require("mongojs");
 const app = express();
 
 app.use(logger("dev"));
+var PORT = process.env.PORT || 8080;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -120,6 +121,6 @@ app.delete("/clearall", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("App running on port 3000!");
+app.listen(PORT, () => {
+  console.log(`App running on port ${PORT}!`);
 });
