@@ -1,7 +1,7 @@
 const express = require("express");
-const mongojs = require("mongojs");
 const logger = require("morgan");
 const path = require("path");
+const mongoose = require("mongoose");
 
 const app = express();
 
@@ -15,11 +15,11 @@ app.use(express.static("public"));
 const databaseUrl = "notetaker";
 const collections = ["notes"];
 
-const db = mongojs(databaseUrl, collections);
+// const db = mongojs(databaseUrl, collections);
 
-db.on("error", error => {
-  console.log("Database Error:", error);
-});
+// db.on("error", error => {
+//   console.log("Database Error:", error);
+// });
 
 mongoose.connect(
   process.env.MONGODB_URI || 'mongodb://localhost/notetaker',
